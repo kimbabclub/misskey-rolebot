@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "axios": "^1.7.9",
+    "dotenv": "^16.4.7",
+    "misskey-js": "^0.x.x",
+    "ws": "^8.18.0"
+  }
+}
