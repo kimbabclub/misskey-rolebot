@@ -62,10 +62,10 @@ function connect() {
       try {
         if (isRemoteUser) {
           console.log('Skipping remote user message from:', note.user.host);
-          await reply(note.id, `@${fullUsername} 죄송해요! 이 봇은 버터스콘 서버의 로컬 사용자만 지원합니다.`, visibility, note.localOnly);
+          await reply(note.id, `@${fullUsername} 죄송해요! 이 봇은 로컬 사용자만 지원합니다.`, visibility, note.localOnly);
           return;
         }
-        if (note.text?.includes('아늑')) {
+        if (note.text?.includes('부여')) {
           console.log('Attempting to assign role to user:', userId);
           const success = await assignRole(userId);
           console.log('Role assignment result:', success);
@@ -76,14 +76,10 @@ function connect() {
           console.log('Role unassignment result:', success);
           await reply(note.id, `@${fullUsername} ${success ? '역할이 성공적으로 해제되었습니다. 미스키를 새로고침해보세요!' : '역할 해제 중 오류가 발생했습니다 이미 아늑 모드 해제 상태이신 것은 아닌지 확인해 보세요.'}`, visibility, note.localOnly);
         } else {
-          await reply(note.id, `@${fullUsername} 반가워요! 저는 자동으로 '아늑 모드' 역할을 부여하는 봇이에요.
-**[아늑 모드란]**
-로컬, 소셜, 글로벌 타임라인이 사라지고, 홈 타임라인만 남습니다. 
-공개 노트를 작성할 수 없게 됩니다.
-번거로운 문의 없이 간단히 홈탐에 고여보세요!
+          await reply(note.id, `@${fullUsername} 반가워요! 저는 자동으로 역할을 부여하는 봇이에요.
 
 **[사용 방법]**
-'아늑' 이라고 멘션하시면 역할을 부여해드립니다.
+'부여' 라고 멘션하시면 역할을 부여해드립니다.
 '해제' 라고 멘션하시면 부여된 역할을 해제해 드립니다.
 참고로 DM으로 하셔도 OK입니다!`, visibility, note.localOnly);
         }
