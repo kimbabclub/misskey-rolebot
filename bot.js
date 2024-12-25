@@ -4,7 +4,7 @@ require('dotenv').config();
 
 const MISSKEY_API_URL = process.env.MISSKEY_API_URL;
 const API_TOKEN = process.env.MISSKEY_TOKEN;
-const ROLE_ID = 'a0olffz47n';
+const ROLE_ID = process.env.MISSKEY_ROLE_ID;
 const PING_INTERVAL = 30000; // 30초마다 ping
 const RECONNECT_DELAY = 5000; // 재연결 시도 간격 5초
 
