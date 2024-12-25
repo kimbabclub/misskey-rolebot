@@ -69,12 +69,12 @@ function connect() {
           console.log('Attempting to assign role to user:', userId);
           const success = await assignRole(userId);
           console.log('Role assignment result:', success);
-          await reply(note.id, `@${fullUsername} ${success ? '역할이 성공적으로 부여되었습니다. 미스키를 새로고침해보세요!' : '역할 부여 중 오류가 발생했습니다. 이미 아늑 모드이신 것은 아닌지 확인해 보세요.'}`, visibility, note.localOnly);
+          await reply(note.id, `@${fullUsername} ${success ? '역할이 성공적으로 부여되었습니다. 미스키를 새로고침해보세요!' : '역할 부여 중 오류가 발생했습니다. 이미 역할이 부여되신 것은 아닌지 확인해 보세요.'}`, visibility, note.localOnly);
         } else if (note.text?.includes('해제')) {
           console.log('Attempting to unassign role from user:', userId);
           const success = await unassignRole(userId);
           console.log('Role unassignment result:', success);
-          await reply(note.id, `@${fullUsername} ${success ? '역할이 성공적으로 해제되었습니다. 미스키를 새로고침해보세요!' : '역할 해제 중 오류가 발생했습니다 이미 아늑 모드 해제 상태이신 것은 아닌지 확인해 보세요.'}`, visibility, note.localOnly);
+          await reply(note.id, `@${fullUsername} ${success ? '역할이 성공적으로 해제되었습니다. 미스키를 새로고침해보세요!' : '역할 해제 중 오류가 발생했습니다 이미 역할이 해제되신 것은 아닌지 확인해 보세요.'}`, visibility, note.localOnly);
         } else {
           await reply(note.id, `@${fullUsername} 반가워요! 저는 자동으로 역할을 부여하는 봇이에요.
 
